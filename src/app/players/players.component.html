@@ -1,0 +1,13 @@
+<div style="margin-top: 20px; border: 2px solid black; border-radius: 5px;">
+    <h4 style="font-weight: bold; padding-left: 5px;">Players - </h4>
+    <div style="height: 40px; padding: 5px; margin: 5px;"  *ngFor='let p of players' [ngStyle]="setMyStyles(p.pactive)">
+            {{p.pname}} 
+            <div style="float: right;">
+                <button (click)='incScore(p.pid)'><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <input type="text" name="" id="" style="width: 25px; text-align: center; margin: 0px 1px;" value="{{p.pscore}}">
+                <button *ngIf="p.pscore>0" (click)='decScore(p.pid)'><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                <button *ngIf="p.pscore == 0 && p.pactive == true" (click)='decScore(p.pid)'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <button *ngIf="p.pscore == 0 && p.pactive == false" (click)='decScore(p.pid)'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+            </div>
+    </div>
+</div>
